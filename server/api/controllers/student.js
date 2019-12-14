@@ -65,6 +65,8 @@ exports.updateStudent = async (req, res, next) => {
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' })
     }
+
+    
     // let student = {}
     // // if(req.body.email){
     // //     student.email=req.body.email
