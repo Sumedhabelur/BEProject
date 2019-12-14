@@ -4,16 +4,16 @@ const Student = require("../models/student");
 exports.loginStudent = async (req, res, next) => {
     console.log('req', req.body)
     const result = await Student.find({ userName: req.body.userName, pass: req.body.pass });
-    console.log('result', result)  
+    console.log('result', result)
     if (result.length > 0) {
-        res.status(200).json( result )
+        res.status(200).json(result)
     }
     else {
         res.status(200).json({ message: 'Invalid credentials' })
     }
 }
 
-exports.registerStudent = async(req, res, next) => {
+exports.registerStudent = async (req, res, next) => {
 
     const date = new Date(req.body.admissionDate);
     const year = date.getFullYear().toString();
@@ -48,12 +48,23 @@ exports.registerStudent = async(req, res, next) => {
             console.log('error', error)
         });
 
-        function generateRandomPassword() {
-            return 'Random';
-        }
+    function generateRandomPassword() {
+        return 'Random';
+    }
 }
 exports.updateStudent = async (req, res, next) => {
     console.log('req', req)
+
+    const ObjForUpdate = {
+        firstName: { $set: { firstName: req.body.field } },
+        lastName: { $set: { lastName: req.body.field } },
+    }
+    try {
+        const result = await Student.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
+        res.status(200).json({result});
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' })
+    }
     // let student = {}
     // // if(req.body.email){
     // //     student.email=req.body.email
@@ -89,7 +100,8 @@ exports.getAllStudent = (req, res, next) => {
         })
 }
 exports.getStudentById = async (req, res, next) => {
-    Student.findOne(req.params.id).
+    console.log('req.params.id', req.params.id)
+    Student.find({ _id: req.params.id }).
         then(result => {
             res.status(200).json({ result });
         })

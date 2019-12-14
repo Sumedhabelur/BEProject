@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class StudentDetailComponent implements OnInit {
   studentId: string;
+  student: any;
   detailForm: FormGroup;
   constructor(
     private active: ActivatedRoute,
@@ -41,12 +42,17 @@ export class StudentDetailComponent implements OnInit {
   }
 
   getStudentById(studentId) {
-    this.http.getStudentById(studentId).subscribe(res => {
-      console.log("res", res);
+    this.http.getStudentById(studentId).subscribe((res: any) => {
+      console.log("res", res.result[0]);
+      this.student = res.result[0];
+      this.detailForm.get("firstName").setValue(this.student.firstName);
     });
   }
 
-  onUpdate() {
-
+  updateStudent(updateType) {
+    this.http.updateStudentByField( this.studentId, updateType, this.detailForm.get(updateType).value )
+      .subscribe((res: any) => {
+        this.getStudentById(this.studentId);
+      });
   }
 }

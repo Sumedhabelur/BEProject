@@ -19,4 +19,11 @@ export class HttpService {
   getStudentById(studentId) {
     return this.http.get(`http://localhost:3000/student/${studentId}`);
   }
+
+  updateStudentByField(studentId, updateType, fieldToUpdate) {
+    return this.http.put(`http://localhost:3000/student/update/${studentId}`, {
+      updateType: updateType,
+      field: fieldToUpdate
+    });
+  }
 }
