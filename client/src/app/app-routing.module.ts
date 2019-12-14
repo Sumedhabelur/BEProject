@@ -6,6 +6,7 @@ import { ForgotpasswordComponent } from './authentication/forgotpassword/forgotp
 import { ResetComponent } from './authentication/reset/reset.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { ProfessorListComponent } from './professor/professor-list/professor-list.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'forgotpassword', component: ForgotpasswordComponent},
   {path: 'reset', component: ResetComponent},
   {path: 'student/list', component: StudentListComponent},
+  {path: 'student/detail/:id', component: StudentDetailComponent},
   {path: 'professor/list', component: ProfessorListComponent},
 ];
 

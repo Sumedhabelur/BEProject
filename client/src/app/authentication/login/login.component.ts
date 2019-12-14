@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.httpService.login(this.loginForm.value).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['../register']);
+      this.router.navigate([`../student/detail/${res[0]._id}`]);
     });
   }
 }

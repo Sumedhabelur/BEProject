@@ -53,30 +53,31 @@ exports.registerStudent = async(req, res, next) => {
         }
 }
 exports.updateStudent = async (req, res, next) => {
-    let student = {}
+    console.log('req', req)
+    // let student = {}
+    // // if(req.body.email){
+    // //     student.email=req.body.email
+    // // }
+    // // if(req.body.class){
+    // //     student.class= req.body.class
+    // // }
+    // let result = await Student.findById(req.params.id);
+    // if (result) res.status(400).json({ message: 'No data found' });
+    // else {
+    //     if (req.body.email)
+    //         result.email = req.body.email;
+    //     if (req.body.class)
+    //         result.class = req.body.class;
+    //     result.save()
+    //         .then((result) => {
+    //             res.status(200).json({ result })
+    //         })
+    //         .catch(err => {
+    //             res.status(500).json({ message: 'Internal Server Error' })
+    //         })
+    // }
 
-    
-    // if(req.body.email){
-    //     student.email=req.body.email
-    // }
-    // if(req.body.class){
-    //     student.class= req.body.class
-    // }
-    let result = await Student.findById(req.params.id);
-    if (result) res.status(400).json({ message: 'No data found' });
-    else {
-        if (req.body.email)
-            result.email = req.body.email;
-        if (req.body.class)
-            result.class = req.body.class;
-        result.save()
-            .then((result) => {
-                res.status(200).json({ result })
-            })
-            .catch(err => {
-                res.status(500).json({ message: 'Internal Server Error' })
-            })
-    }
+
 }
 exports.getAllStudent = (req, res, next) => {
     Student.find().
@@ -88,7 +89,7 @@ exports.getAllStudent = (req, res, next) => {
         })
 }
 exports.getStudentById = async (req, res, next) => {
-    Student.findById(req.params.id).
+    Student.findOne(req.params.id).
         then(result => {
             res.status(200).json({ result });
         })
