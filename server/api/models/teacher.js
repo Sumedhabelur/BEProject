@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema({
-    subject: { type: String, required: true }
+    _id: mongoose.Schema.Types.ObjectId,
+    Professor: { type: mongoose.Schema.Types.ObjectId, ref: 'Professor' },
 });
 
 module.exports = mongoose.model('Teacher', Schema);
