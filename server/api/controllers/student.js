@@ -58,6 +58,10 @@ exports.updateStudent = async (req, res, next) => {
     const ObjForUpdate = {
         firstName: { $set: { firstName: req.body.field } },
         lastName: { $set: { lastName: req.body.field } },
+        email: { $set: { email: req.body.field } },
+        class: { $set: { class: req.body.field } },
+        dob: { $set: { dob: req.body.field } },
+        typeOfAdmission: { $set: { typeOfAdmission: req.body.field } }          
     }
     try {
         const result = await Student.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);

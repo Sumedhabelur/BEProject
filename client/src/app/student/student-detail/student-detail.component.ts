@@ -45,7 +45,16 @@ export class StudentDetailComponent implements OnInit {
     this.http.getStudentById(studentId).subscribe((res: any) => {
       console.log("res", res.result[0]);
       this.student = res.result[0];
-      this.detailForm.get("firstName").setValue(this.student.firstName);
+      this.detailForm.get('firstName').setValue(this.student.firstName);
+      this.detailForm.get('lastName').setValue(this.student.lastName);
+      this.detailForm.get('email').setValue(this.student.email);
+      this.detailForm.get('class').setValue(this.student.class);
+      this.detailForm.get('dob').setValue(this.student.dob);
+      this.detailForm.get('typeOfAdmission').setValue(this.student.typeOfAdmission);
+      this.detailForm.get('dept').setValue(this.student.dept);
+
+
+
     });
   }
 

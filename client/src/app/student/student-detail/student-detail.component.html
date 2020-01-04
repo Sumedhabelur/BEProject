@@ -8,34 +8,40 @@
             <form class="form-signin" [formGroup]="detailForm">
 
               <div class="form-group">
-                <label>Email address</label>
-                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter Username Here"
-                  required autofocus>
-                  <button (click)="updateStudent('firstName')" class="btn btn-sm btn-primary">Edit</button>
-              </div>
-
-              <!-- <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" formControlName="pass">
-              </div> -->
-
-              <!-- <div class="form-group">
-                <label>firstName</label>
-                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter Username Here" required autofocus>
+                <label>First Name</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name Here"
+                  required autofocus><button (click)="updateStudent('firstName')" class="btn btn-sm btn-primary">Edit</button>
               </div>
 
               <div class="form-group">
-                <label>lastName</label>
-                <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Username Here" required autofocus>
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name Here"
+                  required autofocus><button (click)="updateStudent('lastName')" class="btn btn-sm btn-primary">Edit</button>
               </div>
 
               <div class="form-group">
-                <label>class</label>
-                <input type="text" class="form-control" formControlName="class" placeholder="Enter Username Here" required autofocus>
-              </div> -->
+                <label>Email Address</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Enter Email Address Here"
+                  required autofocus><button (click)="updateStudent('email')" class="btn btn-sm btn-primary">Edit</button>
+              </div>
 
+              <div class="form-group">
+                <label>Class</label>
+                <input type="text" class="form-control" formControlName="class" placeholder="Enter Class Here"
+                  required autofocus><button (click)="updateStudent('class')" class="btn btn-sm btn-primary">Edit</button>
+              </div>
 
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="text" class="form-control" formControlName="dob" placeholder="Enter Date of Birth Here"
+                  required autofocus><button (click)="updateStudent('dob')" class="btn btn-sm btn-primary">Edit</button>
+              </div>
 
+              <div class="form-group">
+                <label>Type of Admission</label>
+                <input type="text" class="form-control" formControlName="typeOfAdmission" placeholder="Enter Type of Admission Here"
+                  required autofocus><button (click)="updateStudent('typeOfAdmission')" class="btn btn-sm btn-primary">Edit</button>
+              </div>
               <!-- <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="onUpdate()" type="submit">Sign
                 in</button>
               <hr class="my-4"> -->
