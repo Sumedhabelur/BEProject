@@ -5,4 +5,4 @@ const Schema = mongoose.Schema({
     //teacher Id
 });
 
-module.exports = mongoose.model('Class', Schema);
+module.exports = mongoose.model('Class', Schema); 
