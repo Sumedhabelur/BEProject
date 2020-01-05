@@ -10,14 +10,15 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegistrationComponent},
-  {path: 'forgotpassword', component: ForgotpasswordComponent},
-  {path: 'reset', component: ResetComponent},
-  {path: 'student/list', component: StudentListComponent},
-  {path: 'student/detail/:id', component: StudentDetailComponent},
-  {path: 'professor/list', component: ProfessorListComponent},
+  {path: '', redirectTo: 'student', pathMatch: 'full'},
+  // {path: 'login', component: LoginComponent},
+  // {path: 'register', component: RegistrationComponent},
+  // {path: 'forgotpassword', component: ForgotpasswordComponent},
+  // {path: 'reset', component: ResetComponent},
+  // {path: 'student/list', component: StudentListComponent},
+  // {path: 'student/detail/:id', component: StudentDetailComponent},
+  // {path: 'professor/list', component: ProfessorListComponent},
+  { path: 'student', loadChildren: './student/student.module#StudentModule'}
 ];
 
 @NgModule({
