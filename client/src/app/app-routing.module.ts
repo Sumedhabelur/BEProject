@@ -10,7 +10,7 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'student', pathMatch: 'full'},
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   // {path: 'login', component: LoginComponent},
   // {path: 'register', component: RegistrationComponent},
   // {path: 'forgotpassword', component: ForgotpasswordComponent},
@@ -18,7 +18,8 @@ const routes: Routes = [
   // {path: 'student/list', component: StudentListComponent},
   // {path: 'student/detail/:id', component: StudentDetailComponent},
   // {path: 'professor/list', component: ProfessorListComponent},
-  { path: 'student', loadChildren: './student/student.module#StudentModule'}
+  { path: 'student', loadChildren: './student/student.module#StudentModule'},
+  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'}
 ];
 
 @NgModule({
