@@ -22,6 +22,7 @@ export class RegistrationComponent implements OnInit {
       userName: ["", [Validators.required]],
       pass: ["", [Validators.required]],
       firstName: ["", [Validators.required]],
+      
       lastName: ["", [Validators.required]],
       dob: ["", [Validators.required]],
       email: ["", [Validators.required]],

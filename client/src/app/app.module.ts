@@ -28,7 +28,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AppRoutingModule,
     HttpClientModule,
     StudentModule,
-    DashboardModule
+    RegistrationComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]
