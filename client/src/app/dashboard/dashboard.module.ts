@@ -18,7 +18,7 @@ import { RegistrationComponent } from '../authentication/registration/registrati
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

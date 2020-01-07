@@ -1,13 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, NgModule } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpService } from "src/app/shared/http.service";
 import { Router } from "@angular/router";
+@NgModule()
 
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
   styleUrls: ["./registration.component.css"]
 })
+
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
@@ -22,7 +24,6 @@ export class RegistrationComponent implements OnInit {
       userName: ["", [Validators.required]],
       pass: ["", [Validators.required]],
       firstName: ["", [Validators.required]],
-      
       lastName: ["", [Validators.required]],
       dob: ["", [Validators.required]],
       email: ["", [Validators.required]],
