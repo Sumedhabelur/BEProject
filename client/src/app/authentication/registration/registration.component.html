@@ -4,7 +4,7 @@
       <div class="card card-signin my-5">
         <div class="card-body">
           <h5 class="card-title text-center">Sign Up</h5>
-          <form class="form-signin" [formGroup]= registrationForm (ngSubmit)="registerUser()">
+          <form class="form-signin" [formGroup]= "registrationForm" (ngSubmit)="registerUser()">
             <div class="form-group">
               <label>First Name</label>
               <input type="text" class="form-control" formControlName="firstName" placeholder="Enter Fist Name Here" required autofocus >

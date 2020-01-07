@@ -22,7 +22,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1f73e1e8cb587600844be588bf9338e6c0a8db8
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpClientModule,
     StudentModule,
     RegistrationComponent
+<<<<<<< HEAD
+=======
+
+>>>>>>> c1f73e1e8cb587600844be588bf9338e6c0a8db8
   ],
   providers: [],
   bootstrap: [AppComponent]
