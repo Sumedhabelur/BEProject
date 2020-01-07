@@ -17,29 +17,19 @@ import { ProfessorListComponent } from './professor/professor-list/professor-lis
 import { ProfessorUpdateComponent } from './professor/professor-update/professor-update.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentModule } from './student/student.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistrationComponent,
-    ForgotpasswordComponent,
-    ResetComponent,
-    // StudentListComponent,
-    // StudentCreateComponent,
-    // StudentUpdateComponent,
-    ProfessorCreateComponent,
-    ProfessorListComponent,
-    ProfessorUpdateComponent,
-    // StudentDetailComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    StudentModule
+    StudentModule,
+    RegistrationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

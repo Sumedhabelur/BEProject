@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  selectedType = 'admin';
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  selectAuthType(type){
+    console.log('hello')
+    this.selectedType = type;
+  }
 }

@@ -3,13 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-
+import { LoginComponent } from '../authentication/login/Login.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from '../authentication/registration/registration.component';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [
+    DashboardComponent,
+    LoginComponent,
+    RegistrationComponent
+
+  ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

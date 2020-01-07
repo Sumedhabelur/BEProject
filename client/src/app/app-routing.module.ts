@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './authentication/login/login.component';
+// import { LoginComponent } from './authentication/login/login.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
 import { ForgotpasswordComponent } from './authentication/forgotpassword/forgotpassword.component';
 import { ResetComponent } from './authentication/reset/reset.component';
