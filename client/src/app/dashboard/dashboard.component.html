@@ -1,9 +1,9 @@
 <div class="top-menu">
-  <button (click)="selectAuthType('admin')" style="margin-left: 130px;" type="button" class="btn btn-primary">Admin</button>
-  <button (click)="selectAuthType('student')" style="margin-left: 130px;" type="button" class="btn btn-primary">Student</button>
-  <button (click)="selectAuthType('professor')" style="margin-left: 130px;" type="button" class="btn btn-primary">Professor</button>
+  <button (click)="selectAuthType('admin')" style="margin-left: 130px" type="button" class="btn btn-primary">Admin</button>
+  <button (click)="selectAuthType('student')" style="margin-left: 130px" type="button" class="btn btn-primary">Student</button>
+  <button (click)="selectAuthType('professor')" style="margin-left: 130px" type="button" class="btn btn-primary">Professor</button>
 </div>
 
-<app-login *ngIf="selectedType == 'admin'"></app-login>
-<app-registration *ngIf="selectedType == 'student'"></app-registration>
+<app-login *ngIf = "selectedType == 'admin'"></app-login>
+<app-registration *ngIf = "selectedType == 'student'"></app-registration>
 
