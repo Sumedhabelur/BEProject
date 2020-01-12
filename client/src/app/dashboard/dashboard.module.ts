@@ -4,7 +4,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentAuthModule } from './student-auth/student-auth.module';
-import { StudentLoginComponent } from './student-auth/student-login/student-login.component';
+import { StudentRegistrationComponent } from './student-auth/student-registration/student-registration.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -14,7 +14,7 @@ import { StudentLoginComponent } from './student-auth/student-login/student-logi
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    StudentAuthModule
+    StudentAuthModule,
   ]
 })
 export class DashboardModule { }
