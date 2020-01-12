@@ -12,8 +12,13 @@ export class HttpService {
     return this.http.get("http://localhost:3000/student");
   }
 
+
   login(data): Observable<any> {
     return this.http.post("http://localhost:3000/student/login", data);
+  }
+
+  register(data): Observable<any> {
+    return this.http.post("http://localhost:3000/student/register", data);
   }
 
   getStudentById(studentId) {

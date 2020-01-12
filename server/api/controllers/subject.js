@@ -23,7 +23,7 @@ const mongoose = require("mongoose");
 
 exports.registerSubject = (req, res, next) => {
     const subject = new Subject({
-        subjectName: req.body.subjectName,
+        subjectName: req.body.subjectName
     });
     subject
         .save()

@@ -35,3 +35,4 @@ export class RegistrationComponent implements OnInit {
 
   registerUser() {}
 }
+

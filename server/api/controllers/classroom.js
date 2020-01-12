@@ -24,6 +24,7 @@ const mongoose = require("mongoose");
 exports.registerClassroom = (req, res, next) => {
     const classroom = new Classroom({
         subject: req.body.subject,
+        
     });
     classroom
         .save()
