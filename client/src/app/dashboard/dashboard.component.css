@@ -1,3 +1,51 @@
 .top-menu{
   margin-top: 50px;
 }
+
+
+.background {
+  background-image: url('../../assets/images/back.jpg');
+  width: 1518px;
+  height: 737px;
+}
+
+.logo {
+  background-image: url('../../assets/images/logo.jpg');
+  margin-left: 60px;
+    margin-top: 63px;
+    border: 2px solid navy;
+    border-radius: 500px;
+    width: 200px;
+    height: 200px;
+}
+
+.heading{
+  color: white;
+    font-size: 50px;
+    font-family: 'Headland One';
+    text-align: center;
+    margin-top: 120px;
+    margin-left: 94px;
+}
+
+.sub-heading{
+    margin-left: 367px;
+    color: white;
+    font-size: 27px;
+    font-family: 'Charm';
+}
+
+.nav-button{
+  background-color: #7DAFF9;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 20px 25px 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  font-size: 18px;
+  margin-top: 18px;
+  margin-left: 101px;
+}
