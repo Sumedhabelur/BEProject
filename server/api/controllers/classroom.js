@@ -1,8 +1,5 @@
 const express = require("express");
-const router = express.Router();
-const ClassroomController = require('../models/classroom');
-const multer = require('multer');
-const mongoose = require("mongoose");
+const Classroom = require("../models/classroom");
 
 //exports.registerTeacher = async (req, res, next) => {
 //router.post('/',(req,res,next) => {
@@ -23,7 +20,9 @@ const mongoose = require("mongoose");
 
 exports.registerClassroom = (req, res, next) => {
     const classroom = new Classroom({
-        subject: req.body.subject,
+        className:req.body.className,
+        professorId:req.body.professorId,
+        lectureId:req.body.lectureId  
     });
     classroom
         .save()
@@ -41,16 +40,17 @@ exports.updateClassroom = async (req, res, next) => {
     console.log('req', req)
 
     const ObjForUpdate = {
-        className : { $set: { className: req.body.field } } 
-        }          
-    }
+        className : { $set: { className: req.body.field } } ,
+        professorId : { $set: { professorId: req.body.field } }, 
+        lectureId : { $set: { lectureId: req.body.field } }                 
+    }          
     try {
         const result = await Classroom.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
         res.status(200).json({result});
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' })
     }
-
+}
 
 exports.getAllClassroom = (req, res, next) => {
     Classroom.find().
