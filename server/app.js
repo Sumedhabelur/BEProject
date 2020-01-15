@@ -9,6 +9,10 @@ const mongoose = require("mongoose");
  const studentRoutes = require("./api/routes/student");
  const professorRoutes = require("./api/routes/professor");
  const classroomRoutes = require("./api/routes/classroom");
+ const subjectRoutes = require("./api/routes/subject");
+ const lectureRoutes = require("./api/routes/lecture");
+
+
  // need to change
 
 mongoose.connect('mongodb+srv://node-shop:node-shop@node-shop-rest-slxeu.mongodb.net/test?retryWrites=true&w=majority',
@@ -37,6 +41,8 @@ app.use("/admin", adminRoutes);
 app.use("/student", studentRoutes);
 app.use("/professor",professorRoutes);
 app.use("/classroom",classroomRoutes);
+app.use("/subject",subjectRoutes);
+app.use("/lecture",lectureRoutes);
 
 // Routes which should handle requests
 

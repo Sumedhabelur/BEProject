@@ -1,12 +1,13 @@
-const mongoose = require("mongoose");
-const SubjectController = require('../models/subject');
+const express = require("express");
+const Classroom = require("../models/lecture");
 
-exports.registerSubject = (req, res, next) => {
-    const subject = new Subject({
-        subjectName: req.body.subjectName,
-        professor: req.body.professor
+exports.registerLecture = (req, res, next) => {
+    const lecture = new Lecture({
+        class:req.body.class,
+        subjectId:req.body.subjectId,
+        studentsId:req.body.student
     });
-    subject
+    lecture
         .save()
         .then((result) => {
             res.status(201).json({
@@ -18,23 +19,25 @@ exports.registerSubject = (req, res, next) => {
         });
 }
 
-exports.updateSubject = async (req, res, next) => {
+exports.updateLecture = async (req, res, next) => {
     console.log('req', req)
 
     const ObjForUpdate = {
-        subjectName: { $set: { subjectName: req.body.field } }, 
-        professor: { $set: { professor: req.body.field } } 
-        }          
+        class : { $set: { class: req.body.field } } ,
+        subjectId : { $set: { subjectId: req.body.field } }, 
+        studentsId : { $set: { studentsId:req.body.field} },
+        //date : { $set: { date: req.body.field } }                 
+    }          
     try {
-        const result = await Subject.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
+        const result = await Lecture.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
         res.status(200).json({result});
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' })
     }
 }
 
-exports.getAllSubject = (req, res, next) => {
-    Subject.find().
+exports.getAllLecture = (req, res, next) => {
+    Lecture.find().
         then(result => {
             res.status(200).json({ result });
         })
@@ -43,9 +46,9 @@ exports.getAllSubject = (req, res, next) => {
         })
 }
 
-exports.getSubjectById = async (req, res, next) => {
+exports.getLectureById = async (req, res, next) => {
     console.log('req.params.id', req.params.id)
-    Subject.find({ _id: req.params.id }).
+    Lecture.find({ _id: req.params.id }).
         then(result => {
             res.status(200).json({ result });
         })

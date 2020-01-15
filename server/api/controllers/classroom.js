@@ -22,7 +22,7 @@ exports.registerClassroom = (req, res, next) => {
     const classroom = new Classroom({
         className:req.body.className,
         professorId:req.body.professorId,
-        lectureId:req.body.lectureId  
+        lectureId:req.body.lectureId
     });
     classroom
         .save()
