@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { StudentAuthRoutingModule } from './student-auth-routing.module';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { StudentRegistrationComponent } from './student-registration/student-registration.component';
 
 
 @NgModule({
-  declarations: [StudentLoginComponent],
+  declarations: [StudentLoginComponent, StudentRegistrationComponent],
   imports: [
     CommonModule,
     StudentAuthRoutingModule
   ],
-  exports: [StudentLoginComponent]
+  exports: [StudentLoginComponent, StudentRegistrationComponent]
 })
 export class StudentAuthModule { }
