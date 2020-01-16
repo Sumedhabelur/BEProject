@@ -1,23 +1,6 @@
 const express = require("express");
 const Classroom = require("../models/classroom");
 
-//exports.registerTeacher = async (req, res, next) => {
-//router.post('/',(req,res,next) => {
- //   const teacher = new Teacher ({
- //     subjectName: req.body.subjectName 
-  //  });
-  //  teacher
-  //      .save()
-  //      .then((result) => {
-  //          res.status(201).json({
-  //              result: result
-   //         })
-   //     })
-    //    .catch((error) => {
-     //       console.log('error', error)
-     //   });
-//})
-
 exports.registerClassroom = (req, res, next) => {
     const classroom = new Classroom({
         className:req.body.className,

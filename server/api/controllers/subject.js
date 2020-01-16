@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const SubjectController = require('../models/subject');
+const Subject = require('../models/subject');
 
 exports.registerSubject = (req, res, next) => {
     const subject = new Subject({
@@ -52,4 +52,17 @@ exports.getSubjectById = async (req, res, next) => {
         .catch(err => {
             res.status(500).json({ message: 'Internal Server Error' })
         })
+}
+
+exports.updateSubject = async (req, res, next) => {
+    const ObjForUpdate = {
+        subjectName: { $set: { subjectName: req.body.field } },
+        professor: { $set: { professor: req.body.field } }       
+    }
+    try {
+        const result = await Subject.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
+        res.status(200).json({result});
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }

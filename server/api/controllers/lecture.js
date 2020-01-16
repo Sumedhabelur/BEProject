@@ -1,11 +1,14 @@
 const express = require("express");
-const Classroom = require("../models/lecture");
+const Lecture = require("../models/lecture");
 
 exports.registerLecture = (req, res, next) => {
+    const d = new Date();
+    console.log(d)
     const lecture = new Lecture({
         class:req.body.class,
         subjectId:req.body.subjectId,
-        studentsId:req.body.student
+        studentsId:req.body.studentsId,
+        date:d
     });
     lecture
         .save()
@@ -15,7 +18,7 @@ exports.registerLecture = (req, res, next) => {
             })
         })
         .catch((error) => {
-            console.log('error', error)
+            console.log(error)
         });
 }
 
