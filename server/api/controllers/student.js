@@ -6,10 +6,10 @@ exports.loginStudent = async (req, res, next) => {
     const result = await Student.find({ userName: req.body.userName, pass: req.body.pass });
     console.log('result', result)
     if (result.length > 0) {
-        res.status(200).json(result)
+        res.status(200).json({status: 'SUCCESS', result:result, message: 'Login Successful'})
     }
     else {
-        res.status(200).json({ message: 'Invalid credentials' })
+        res.status(200).json({ status: 'ERROR', result: result, message: 'Invalid credentials' })
     }
 }
 
