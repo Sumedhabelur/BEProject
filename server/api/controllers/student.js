@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Student = require("../models/student");
+const nodemailer = require('nodemailer');
 
 exports.loginStudent = async (req, res, next) => {
     console.log('req', req.body)
@@ -42,16 +43,39 @@ exports.registerStudent = async (req, res, next) => {
         userName: userName
     });
     student
-        .save();
-        // .then((result) => {
-        //     res.status(201).json({
-        //         result
-        //     )
-        // })
-        // .catch((error) => {
-        //     console.log('error', error)
-        // });
-        res.status(200).json(result);
+        .save()
+        .then((result) => {
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'sumedhabelur@gmail.com',
+                    pass: 'Sumedha@12345'
+                }
+            });
+            var mailOptions = {
+                from: 'sumedhabelur@gmail.com',
+                to: 'hingesiddhi55@gmail.com',
+                subject: 'Hi SID',
+                text: 'http://localhost:4200/student'
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    res.status(201).json({
+                        res: 'Email Sent',
+                        result: result
+                    });
+                }
+            });
+        })
+        .catch((error) => {
+            console.log('error', error)
+        });
+
+
+
 
     function generateRandomPassword() {
         return 'Random';
@@ -66,16 +90,16 @@ exports.updateStudent = async (req, res, next) => {
         email: { $set: { email: req.body.field } },
         class: { $set: { class: req.body.field } },
         dob: { $set: { dob: req.body.field } },
-        typeOfAdmission: { $set: { typeOfAdmission: req.body.field } }          
+        typeOfAdmission: { $set: { typeOfAdmission: req.body.field } }
     }
     try {
         const result = await Student.update({ _id: req.params.id }, ObjForUpdate[req.body.updateType]);
-        res.status(200).json({result});
+        res.status(200).json({ result });
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' })
     }
 
-    
+
     // let student = {}
     // // if(req.body.email){
     // //     student.email=req.body.email
