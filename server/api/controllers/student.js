@@ -5,20 +5,24 @@ exports.loginStudent = async (req, res, next) => {
     console.log('req', req.body)
     const result = await Student.find({ userName: req.body.userName, pass: req.body.pass });
     console.log('result', result)
-    if (result.length > 0) {
-        res.status(200).json({status: 'SUCCESS', result:result, message: 'Login Successful'})
-    }
-    else {
-        res.status(200).json({ status: 'ERROR', result: result, message: 'Invalid credentials' })
-    }
+    // if (result.length > 0) {
+    //     res.status(200).json({status: 'SUCCESS', result:result, message: 'Login Successful'})
+    // }
+    // else {
+    //     res.status(200).json({ status: 'ERROR', result: result, message: 'Invalid credentials' })
+    // }
+
+    res.status(200).json(result);
 }
 
 exports.registerStudent = async (req, res, next) => {
+    console.log('Into the server..!!');
+    //const date = new Date(req.body.admissionDate);
+    const date = new Date();
 
-    const date = new Date(req.body.admissionDate);
     const year = date.getFullYear().toString();
-    console.log('date', date)
-    console.log('year', year)
+    console.log('date', date);
+    console.log('year', year);
     let result = await Student.find();
     let userName = '';
     if (req.body.typeOfAdmission === 'DSE') {
@@ -38,15 +42,16 @@ exports.registerStudent = async (req, res, next) => {
         userName: userName
     });
     student
-        .save()
-        .then((result) => {
-            res.status(201).json({
-                result: result
-            })
-        })
-        .catch((error) => {
-            console.log('error', error)
-        });
+        .save();
+        // .then((result) => {
+        //     res.status(201).json({
+        //         result
+        //     )
+        // })
+        // .catch((error) => {
+        //     console.log('error', error)
+        // });
+        res.status(200).json(result);
 
     function generateRandomPassword() {
         return 'Random';

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-login.component.css']
 })
 export class StudentLoginComponent implements OnInit {
-  loginFrom: FormGroup;
+  loginForm: FormGroup;
   isLoginFailed = false;
 
   constructor(
@@ -23,7 +23,7 @@ export class StudentLoginComponent implements OnInit {
   }
 
   buildForm() {
-    this.loginFrom = this.fb.group({
+    this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       pass: ['', Validators.required]
     });
@@ -34,17 +34,21 @@ export class StudentLoginComponent implements OnInit {
   }
 
   loginStudent() {
+
+    console.log(this.loginForm.get('userName'))
     const data = {
-      userName: this.loginFrom.get('userName').value,
-      pass: this.loginFrom.get('pass').value
+      userName: this.loginForm.get('userName').value,
+      pass: this.loginForm.get('pass').value
     };
     this.studentService.loginStudent(data).subscribe((response: any) => {
-      if (response.status == 'SUCCESS') {
+      console.log('response', response)
+      if (response.length > 0) {
         this.router.navigate(['/student']);
       } else {
         console.log('Login Failed')
         this.isLoginFailed = true;
       }
+
     });
   }
 }
