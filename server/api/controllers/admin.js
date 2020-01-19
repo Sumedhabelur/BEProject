@@ -1,27 +1,24 @@
 const mongoose = require("mongoose");
 const Admin = require("../models/admin");
 
-exports.loginAdmin = async(req, res, next) => {
-    const result = await Admin.find({email:req.body.email,pass:req.body.pass});    
-    if(result.length>0){
-        res.status(200).json({result:result})
-    }
-    else{
-        res.status(400).json({message:'Invalid credentials'})
-    }
+exports.loginAdmin = async (req, res, next) => {
+    const result = await Admin.find({ userName: req.body.userName, pass: req.body.pass });
+    console.log('result', result)
+    res.status(201).json(result);
 }
 
 exports.registerAdmin = (req, res, next) => {
     const admin = new Admin({
-        email: req.body.email,
-        pass: req.body.pass
+        userName: 'kseadmin',
+        pass: 'keystone'
     });
     admin
         .save()
         .then((result) => {
             res.status(201).json({
-                result:result
+                result: result
             })
+            console.log("sucess");
         })
         .catch((error) => {
             console.log('error', error)

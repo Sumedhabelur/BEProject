@@ -13,8 +13,12 @@ export class HttpService {
   }
 
 
+  // login(data): Observable<any> {
+  //   return this.http.post("http://localhost:3000/student/login", data);
+  // }
+
   login(data): Observable<any> {
-    return this.http.post("http://localhost:3000/student/login", data);
+    return this.http.post("http://localhost:3000/admin/login", data);
   }
 
   register(data): Observable<any> {

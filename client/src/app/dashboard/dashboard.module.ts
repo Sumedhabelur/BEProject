@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StudentAuthModule } from './student-auth/student-auth.module';
-import { StudentRegistrationComponent } from './student-auth/student-registration/student-registration.component';
+// import { StudentAuthModule } from './student-auth/student-auth.module';
+import { AdminAuthModule } from './admin-auth/admin-auth.module';
+// import { StudentRegistrationComponent } from './student-auth/student-registration/student-registration.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -14,7 +15,8 @@ import { StudentRegistrationComponent } from './student-auth/student-registratio
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    StudentAuthModule,
+   // StudentAuthModule,
+    AdminAuthModule
   ]
 })
 export class DashboardModule { }

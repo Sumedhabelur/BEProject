@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {}
 
   selectAuthType(type){
-    console.log('jhgytyeutyyr')
     this.selectedType = type;
   }
 }

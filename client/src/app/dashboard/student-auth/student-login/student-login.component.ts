@@ -35,17 +35,17 @@ export class StudentLoginComponent implements OnInit {
 
   loginStudent() {
 
-    console.log(this.loginForm.get('userName'))
+    console.log(this.loginForm.get('userName'));
     const data = {
       userName: this.loginForm.get('userName').value,
       pass: this.loginForm.get('pass').value
     };
     this.studentService.loginStudent(data).subscribe((response: any) => {
-      console.log('response', response)
+      console.log('response', response);
       if (response.length > 0) {
         this.router.navigate(['/student']);
       } else {
-        console.log('Login Failed')
+        console.log('Login Failed');
         this.isLoginFailed = true;
       }
 
