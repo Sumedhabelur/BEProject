@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AdminAuthService } from "../adminAuthService/admin-auth.service";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AdminAuthService } from '../adminAuthService/admin-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-admin-login",
-  templateUrl: "./admin-login.component.html",
-  styleUrls: ["./admin-login.component.css"]
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
   adminForm: FormGroup;
@@ -24,8 +24,8 @@ export class AdminLoginComponent implements OnInit {
 
   buildForm() {
     this.adminForm = this.fb.group({
-      userName: ["", Validators.required],
-      pass: ["", Validators.required]
+      userName: ['', Validators.required],
+      pass: ['', Validators.required]
     });
   }
 
@@ -34,24 +34,24 @@ export class AdminLoginComponent implements OnInit {
   }
 
   loginAdmin() {
-    console.log(this.adminForm.get("userName"));
+    console.log(this.adminForm.get('userName'));
     const data = {
-      userName: this.adminForm.get("userName").value,
-      pass: this.adminForm.get("pass").value
+      userName: this.adminForm.get('userName').value,
+      pass: this.adminForm.get('pass').value
     };
 
-    this.router.navigate(["/admin"]);
+    this.router.navigate(['/admin']);
 
-    // this.adminService.loginAdmin(data).subscribe((response: any) => {
-    //   console.log('response', response);
-    //   console.log('sucessss');
-    //   if (response.length > 0) {
-    //    this.router.navigate(['/admin']);
-    //   } else {
-    //     console.log('Login Failed');
-    //     this.isLoginFailed = true;
-    //   }
+    this.adminService.loginAdmin(data).subscribe((response: any) => {
+      console.log('response', response);
+      console.log('sucessss');
+      if (response.length > 0) {
+       this.router.navigate(['/admin']);
+      } else {
+        console.log('Login Failed');
+        this.isLoginFailed = true;
+      }
 
-    // });
+    });
   }
 }
