@@ -51,7 +51,7 @@ registerStudent() {
   this.studentService.registerStudent(data).subscribe((response: any) => {
     console.log('response', response);
     if (response.length > 0) {
-      this.router.navigate(['/student']);
+      this.router.navigate(['/admin']);
     } else {
       console.log('Registeration Failed');
       this.isRegisterFailed = true;

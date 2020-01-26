@@ -44,35 +44,36 @@ exports.registerStudent = async (req, res, next) => {
     });
     student
         .save()
-        .then((result) => {
-            var transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: 'sumedhabelur@gmail.com',
-                    pass: 'Sumedha@12345'
-                }
-            });
-            var mailOptions = {
-                from: 'sumedhabelur@gmail.com',
-                to: 'hingesiddhi55@gmail.com',
-                subject: 'Hi SID',
-                text: 'http://localhost:4200/student'
-            };
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                    res.status(201).json({
-                        res: 'Email Sent',
-                        result: result
-                    });
-                }
-            });
-        })
-        .catch((error) => {
-            console.log('error', error)
-        });
+        res.status(200).json(result);
+        // .then((result) => {
+        //     var transporter = nodemailer.createTransport({
+        //         service: 'gmail',
+        //         auth: {
+        //             user: 'sumedhabelur@gmail.com',
+        //             pass: 'Sumedha@12345'
+        //         }
+        //     });
+        //     var mailOptions = {
+        //         from: 'sumedhabelur@gmail.com',
+        //         to: 'hingesiddhi55@gmail.com',
+        //         subject: 'Hi SID',
+        //         text: 'http://localhost:4200/student'
+        //     };
+        //     transporter.sendMail(mailOptions, function (error, info) {
+        //         if (error) {
+        //             console.log(error);
+        //         } else {
+        //             console.log('Email sent: ' + info.response);
+        //             res.status(201).json({
+        //                 res: 'Email Sent',
+        //                 result: result
+        //             });
+        //         }
+        //     });
+        // })
+        // .catch((error) => {
+        //     console.log('error', error)
+        // });
 
 
 
